@@ -19,7 +19,7 @@ pipeline {
         stage("Init") {
             steps {
                 echo "Initializing"
-                echo {GITHUB_PR_HEAD_SHA}
+                echo "${GITHUB_PR_HEAD_SHA}"
             }
         }
         stage("build") {
