@@ -13,4 +13,9 @@ pipeline {
         }
 
     }
+    post {
+        success {
+            githubPRComment comment: githubPRMessage('Build ${BUILD_NUMBER} ${BUILD_STATUS}'), statusVerifier: allowRunOnStatus('SUCCESS')   
+        }
+    }
 }
