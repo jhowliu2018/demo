@@ -1,16 +1,10 @@
 pipeline {
     agent {
         docker {
-            image "python:alpine"
+            image 'python:alpine'
         }
     }
     stages {
-        stage("Init") {
-            steps {
-                echo "Initializing"
-            }
-        }
-
         stage("build ansible") {
             steps {
                 git credentialsId: 'JenkinsToken', url: 'https://github.com/lihopentium/playbook.exercise.git'
@@ -22,6 +16,5 @@ pipeline {
                 }
             }
         }
-
     }
 }
