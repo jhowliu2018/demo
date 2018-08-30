@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     stages {
-        stage {
-            echo "Hello World"
+        staget {
+            echo "Hello World, I'm error"
         }
     }
 }
