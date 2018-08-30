@@ -9,13 +9,11 @@ pipeline {
         stage("build") {
             steps {
                 echo "buidlddd"
+                githubPRComment comment: githubPRMessage('DAMN GREAT'), statusVerifier: allowRunOnStatus('SUCCESS')
+
             }
         }
 
     }
-    post {
-        success {
-            githubPRComment comment: githubPRMessage('Build ${BUILD_NUMBER} ${BUILD_STATUS}'), statusVerifier: allowRunOnStatus('SUCCESS')   
-        }
-    }
+   
 }
