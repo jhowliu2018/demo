@@ -6,9 +6,14 @@ pipeline {
                 echo "Initializing"
             }
         }
-        stage("build") {
+
+        stage("build ansible") {
             steps {
-                echo "buidlddd"
+                git credentialsId: 'JenkinsToken', url: 'https://github.com/lihopentium/playbook.exercise.git'
+                sh "pip install -r requirements.txt"
+                dir("exercise2") {
+                    sh "ansible-playbook BuildAndRunContainer.yml -i inventory"
+                }
             }
         }
 
