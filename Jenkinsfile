@@ -1,10 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image "python:alpine"
+        }
+    }
     stages {
         stage("Init") {
             steps {
                 echo "Initializing"
-                sh "apt install virtualenv"
             }
         }
 
