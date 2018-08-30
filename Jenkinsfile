@@ -24,10 +24,11 @@ pipeline {
         stage("build") {
             steps {
                 echo "buidlddd"
-                sendBuildStatus("Damn Great", "SUCCESS", "https://github.com/jhowliu2018/demo", "${JOB_BASE_NAME}", "${GITHUB_PR_HEAD_SHA}")
+                sendBuildStatus("Damn Great", "SUCCESS", "https://github.com/jhowliu2018/demo", "${JOB_BASE_NAME}", "${SHA1}")
             }
         }
 
     }
+    
    
 }
